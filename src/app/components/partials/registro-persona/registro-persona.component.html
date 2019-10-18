@@ -19,15 +19,15 @@
                         <label for="nombres">Tipo documento</label>
                         <select class="form-control" id="tipoDocIdentidad" name="tipoDocIdentidad" [(ngModel)]="persona.tipoDocumento" required>
                                 <option>--Seleccione--</option>
-                                  <option *ngFor="let documento of tipoDocumentos" [ngValue]="documento">{{documento.nombre +" "+ documento.sigla}}</option>
+                                  <option *ngFor="let documento of tipoDocumentos" [ngValue]="documento">{{documento.nombre +"----"+ documento.sigla}}</option>
                               </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="numeroDocumento">Numero documento</label>
-                        <input type="text" class="form-control" id="numeroDocumento" placeholder="Número de documento" name="numeroDocumento" [(ngModel)]="persona.numeroDocumento" minlength="3" #numeroDocumento="ngModel" required>
+                        <input type="text" class="form-control" id="numeroDocumento" placeholder="Número de documento" name="numeroDocumento" [(ngModel)]="persona.numeroDocumento" minlength="6" #numeroDocumento="ngModel" required>
                         <div class="alert alert-danger" *ngIf="numeroDocumento.invalid && (numeroDocumento.dirty || numeroDocumento.touched)">
-                            <div *ngIf="numeroDocumento?.errors.required">Apellido es requerido</div>
-                            <div *ngIf="numeroDocumento?.errors.minlength">Apellido debe terner al menos 3 caracteres</div>
+                            <div *ngIf="numeroDocumento?.errors.required">Numero de documento requerido</div>
+                            <div *ngIf="numeroDocumento?.errors.minlength">Numero de documento debe tener al menos 6 caracteres</div>
                         </div>
                     </div>
                 </div>
@@ -47,10 +47,10 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos" placeholder="apellidos" name="apellidos" [(ngModel)]="persona.apellido" minlength="3" #apellidos="ngModel" required>
+                        <input type="text" class="form-control" id="apellidos" placeholder="apellidos" name="apellidos" [(ngModel)]="persona.apellido" minlength="4" #apellidos="ngModel" required>
                         <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
                             <div *ngIf="apellidos?.errors.required">Apellido es requerido</div>
-                            <div *ngIf="apellidos?.errors.minlength">Apellido debe terner al menos 3 caracteres</div>
+                            <div *ngIf="apellidos?.errors.minlength">Apellido debe terner al menos 4 caracteres</div>
                         </div>
 
                     </div>
@@ -58,7 +58,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" placeholder="teléfono" name="telefono" [(ngModel)]="persona.telefono">
+                        <input type="number" class="form-control" id="telefono" placeholder="teléfono" name="telefono" [(ngModel)]="persona.telefono" minlength="7">
+                       <!-- <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                            <div *ngIf="telefono?.errors.required">Telefono es requerido</div>
+                            <div *ngIf="telefono?.errors.minlength">Telefono debe terner al menos 7 caracteres</div>
+                        </div>-->
                     </div>
                 </div>
 

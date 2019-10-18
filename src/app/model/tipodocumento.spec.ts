@@ -1,7 +1,7 @@
-import { Tipodocumento } from './tipodocumento';
+import { TipoDocumento } from './tipodocumento';
 
 describe('Tipodocumento', () => {
   it('should create an instance', () => {
-    expect(new Tipodocumento()).toBeTruthy();
+    expect(new TipoDocumento()).toBeTruthy();
   });
 });
